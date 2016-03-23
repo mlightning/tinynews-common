@@ -1,4 +1,4 @@
-tinynews-node-common
+tinynews-common
 =========
 
 Common code for all Tinynews project
@@ -54,10 +54,10 @@ For example, when working with models, their name will be CamelCase, and you sho
 Including in a Project
 ----
 
-Including **tinynews-node-common** in a project is easy, just add the repository as a dependency, then require it from within your project:
+Including **tinynews-common** in a project is easy, just add the repository as a dependency, then require it from within your project:
 
 ```javascript
-var Core = require('tinynews-node-common');
+var Core = require('tinynews-common');
 ```
 
 Using/Declaring Models
@@ -66,7 +66,7 @@ Using/Declaring Models
 Not required, but makes for clean code:
 
 ```javascript
-var Core = require('tinynews-node-common');
+var Core = require('tinynews-common');
 var Models = Core.Models;
 var User = Models.User;
 ```
@@ -80,7 +80,7 @@ While these models can be used directly, it's suggested that they be wrapped wit
 
 The global JS value **NL_API_HOST** must also be defined within the <head> section of your page.
 
-Logically, these models might make more sense to be part of the API repository, but since **tinynews-node-common** currently houses any/all shared resources, they reside here for the time being.
+Logically, these models might make more sense to be part of the API repository, but since **tinynews-common** currently houses any/all shared resources, they reside here for the time being.
 
 ```javascript
 Core.Assets.Models.Import(__dirname.toString() + '/public/js/_models/');
@@ -94,7 +94,7 @@ You should not manage your connection to OrientDB on your own.  Instead use the 
 You should also make sure you've connected to the database before attempting to use any of the models or database related functions.
 
 ```javascript
-var Core = require('tinynews-node-common');
+var Core = require('tinynews-common');
 ...
 Core.Database.connect(Core.Config, function(e) {
     if (e) {
@@ -117,6 +117,6 @@ Common configuration information is also available via this shared library.  Hav
 Example:
 
 ```javascript
-var Core = require('tinynews-node-common');
+var Core = require('tinynews-common');
 var CommonConfig = Core.Config;  // This is data from `config.json`
 ```
