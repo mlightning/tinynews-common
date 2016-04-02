@@ -33,7 +33,7 @@ var commands = [
     'CREATE PROPERTY User.status SHORT',
     'CREATE INDEX User.email ON User (email) UNIQUE',
     'CREATE INDEX User.handle ON User (handle) UNIQUE',
-    'INSERT INTO User SET handle = "admin", password = "' + crypto.createHash('sha1').update('administrator').digest('hex') + '", first_name="Super", last_name="Admin", email="sfurnival+tinynews_sa@gmail.com", status = 1, imageUrl = "http://placehold.it/320x150"',
+    'INSERT INTO User SET handle = "admin", password = "' + crypto.createHash('sha1').update('administrator').digest('hex') + '", first_name="Super", last_name="Admin", email="marius+tinynews_sa@gmail.com", status = 1, imageUrl = "http://placehold.it/320x150"',
 
     //UserProfile Class
     'DROP CLASS UserProfile',
@@ -50,7 +50,7 @@ var commands = [
     'CREATE PROPERTY UserProfile.about_me String',
     'CREATE PROPERTY UserProfile.modification_date LONG',
     'CREATE PROPERTY UserProfile.creation_date LONG',
-    
+
     //UserHasProfile
     'DROP CLASS UserHasProfile',
     'CREATE CLASS UserHasProfile EXTENDS E',
@@ -472,7 +472,7 @@ var commands = [
     // JournalistHasPublisher
     'DROP CLASS JournalistHasPublisher',
     'CREATE CLASS JournalistHasPublisher EXTENDS E',
-    
+
     // SourceFeed
     'DROP CLASS SourceFeed',
     'CREATE CLASS SourceFeed EXTENDS V',
@@ -576,7 +576,7 @@ var commands = [
     'INSERT INTO Group SET name="The Test Group 3", slug="test-group-3", type=0, status=0',
     'INSERT INTO Group SET name="The Test Group 4", slug="test-group-4", type=0, status=0',
     'INSERT INTO Group SET name="The Test Group 5", slug="test-group-5", type=0, status=0',
-    
+
     'INSERT INTO Comment SET type=1, body="Comment1", creation_date =1397573360, modification_date=1397573360',
     'INSERT INTO Comment SET type=1, body="Comment1-Comment1", creation_date =1397573363, modification_date=1397573350',
     'INSERT INTO Comment SET type=1, body="Comment1-Comment2", creation_date =1397573363, modification_date=1397573350',
@@ -613,7 +613,7 @@ var commands = [
     'CREATE EDGE UserRateArticle FROM (SELECT FROM User WHERE handle = "admin") TO (SELECT FROM Article WHERE slug="best-article-ever") SET value = 20, type="transparency", creation_date = 1397573350',
 
     // Testing Editor
-    'INSERT INTO User SET handle = "editor", password = "' + crypto.createHash('sha1').update('testeditor').digest('hex') + '", first_name="Test", last_name="Editor", email="sfurnival+tinynews_testeditor@gmail.com", status = 1',
+    'INSERT INTO User SET handle = "editor", password = "' + crypto.createHash('sha1').update('testeditor').digest('hex') + '", first_name="Test", last_name="Editor", email="marius+tinynews_testeditor@gmail.com", status = 1',
     'CREATE EDGE UserHasRole FROM (SELECT FROM User WHERE handle = "editor") TO (SELECT FROM Role WHERE name = "Editor")',
     'CREATE EDGE UserHasRole FROM (SELECT FROM User WHERE handle = "editor") TO (SELECT FROM Role WHERE name = "Registered User")',
     'INSERT INTO UserFeedSettings SET track_public_ratings=0, article_filter=0, avg_article_rating=40',

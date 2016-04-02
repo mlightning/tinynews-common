@@ -1,12 +1,12 @@
 {
-   
+
     "orientdb": {
         "serverHost": "orientdb1.tinynews.com",
         "serverPortHTTP": 2480,
         "serverPortBinary": 2424,
         "serverUsername": "tinynews",
         "serverPassword": "b5fReSGNMQyD6my",
-        "databaseName": "test_steve",
+        "databaseName": "test_marius",
         "do_logging": true
     },
     "redis": {
@@ -16,7 +16,7 @@
     "elastic": {
         "host": "stage1-search.tinynews.com",
         "port": 9200,
-        "index": "dev.steve.tinynews.com",
+        "index": "dev.marius.tinynews.com",
         "startup_sniff": true,
         "sniff_frequency": 300000
     },
@@ -28,5 +28,5 @@
         "token": "ZgwdP4IeRCo70X6wwz6IO6D3bus",
         "project_id": "51cdf704ed3d7609a70016e9"
     },
-    "assets": {} 
+    "assets": {}
 }

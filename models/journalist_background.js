@@ -3,7 +3,7 @@
 // ----------------
 
 var Model       = require('./model');
-var Nolet       = require('../database/database');
+var Tinynews       = require('../database/database');
 var Crypto      = require('crypto');
 var Async       = require('async');
 
@@ -62,16 +62,16 @@ JournalistBackground.Create = function(props, journalist_id, cb) {
                     bgdata.push(data);
                     counter++;
 
-                    Nolet.odb
+                    Tinynews.odb
                         .edge
                         .from(data["@rid"])
                         .to(journalist_id)
                         .create('JournalistLinkBackground')
                         .then(function(cdata) {
                             try {
-                                cdata[0]['@rid'] = Nolet.RID.Build( cdata[0]['@rid'] );
-                                cdata[0].in = Nolet.RID.Build( cdata[0].in );
-                                cdata[0].out = Nolet.RID.Build( cdata[0].out );
+                                cdata[0]['@rid'] = Tinynews.RID.Build( cdata[0]['@rid'] );
+                                cdata[0].in = Tinynews.RID.Build( cdata[0].in );
+                                cdata[0].out = Tinynews.RID.Build( cdata[0].out );
 
                                 if (cdata[0].out != data['@rid']) {
                                     callback(new Error('Invalid data returned when retrieving journalist background'), false);
@@ -100,15 +100,15 @@ JournalistBackground.Create = function(props, journalist_id, cb) {
             }
 
             if (data) {
-                Nolet.odb
+                Tinynews.odb
                     .edge
                     .from(data["@rid"])
                     .to(journalist_id)
                     .create('JournalistLinkBackground')
                     .then(function(cdata) {
-                        cdata[0]['@rid'] = Nolet.RID.Build( cdata[0]['@rid'] );
-                        cdata[0].in = Nolet.RID.Build( cdata[0].in );
-                        cdata[0].out = Nolet.RID.Build( cdata[0].out );
+                        cdata[0]['@rid'] = Tinynews.RID.Build( cdata[0]['@rid'] );
+                        cdata[0].in = Tinynews.RID.Build( cdata[0].in );
+                        cdata[0].out = Tinynews.RID.Build( cdata[0].out );
 
                         if (cdata[0].out != data['@rid']) {
                             cb(new Error('Invalid data returned when retrieving profile background'), false);

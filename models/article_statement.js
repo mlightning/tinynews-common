@@ -3,7 +3,7 @@
 // ----------------
 
 var Model       = require('./model');
-var Nolet       = require('../database/database');
+var Tinynews       = require('../database/database');
 
 // ----------------
 //   Definition
@@ -43,14 +43,14 @@ ArticleStatement.Find = function(filter, cb) {
         delete filter.where.article_id;
     }
 
-    Nolet.odb
+    Tinynews.odb
         .select( Model._select(filter.select) )
         .from('ArticleStatement')
         .where( Model._where(filter.where) )
         .all()
         .then(function(data) {
             if (data.length) {
-                data[0]['@rid'] = Nolet.RID.Build(data[0]['@rid']);
+                data[0]['@rid'] = Tinynews.RID.Build(data[0]['@rid']);
                 cb(null, new ArticleStatement(data[0]));
             } else {
                 cb(null, false);
@@ -85,7 +85,7 @@ ArticleStatement.Create = function(props, cb) {
         if (e || !statement) {
             cb(e, false);
         } else {
-            Nolet.odb
+            Tinynews.odb
                 .edge
                 .from(props.article_id)
                 .to(statement['@rid'])
